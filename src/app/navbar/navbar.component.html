@@ -1,0 +1,52 @@
+<img src="{{resolveBanner()}}" class="banner">
+<nav *ngIf="settings$ | async as settings" class="navbar navbar-expand-lg navbar-dark bg-dark" >
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse nav-background" id="navbarSupportedContent" [ngClass]="textColor()">
+      <ul class="navbar-nav mr-auto nav-background" [ngClass]="textColor()">
+        <li>
+            <a class="navbar-brand nav-background" [routerLink]="['/pocetna']"><img class="img img-responsive glyph" src="{{resolveHomeIcon()}}"></a>
+        </li>
+        <li class="nav-item dropdown nav-background" [ngClass]="textColor()">
+          <a class="nav-link dropdown-toggle nav-background" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Oglasi
+          </a>
+          <div class="dropdown-menu nav-background" [ngClass]="textColor()" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item nav-background" [routerLink]="['/oglasi/1']">Prva godina</a>
+            <a class="dropdown-item nav-background" [routerLink]="['/oglasi/2']">Druga godina</a>
+            <a class="dropdown-item nav-background" [routerLink]="['/oglasi/3']">Treca godina</a>
+            <a class="dropdown-item nav-background" [routerLink]="['/oglasi/4']">Cetvrta godina</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item nav-background" [routerLink]="['/oglasi/20']">Treci ciklus</a>
+            <div class="dropdown-divider nav-background"></div>
+            <a class="dropdown-item nav-background" [routerLink]="['/oglasi/30']">Treci ciklus</a>
+            <div class="dropdown-divider nav-background"></div>
+            <a class="dropdown-item nav-background" [routerLink]="['/oglasi/21']">Odbrane zavrsnih radova</a>
+            <div class="dropdown-divider nav-background"></div>
+            <a class="dropdown-item nav-background" [routerLink]="['/oglasi/102']">Postdiplomski studij</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown" [ngClass]="textColor()">
+            <a class="nav-link dropdown-toggle nav-background" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Zavrsni radovi
+            </a>
+            <div class="dropdown-menu nav-background" [ngClass]="textColor()" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item nav-background" [routerLink]="['/zavrsni-radovi/2']">Odobreni zavrsni radovi</a>
+              <a class="dropdown-item nav-background" [routerLink]="['/zavrsni-radovi/3']">Dodjeljeni zavrsni radovi</a>
+              <a class="dropdown-item nav-background" [routerLink]="['/zavrsni-radovi/4']">Odbranjeni zavrsni radovi</a>
+            </div>
+        </li>
+        <li class="nav-item" [ngClass]="textColor()">
+          <a class="nav-link" [routerLink]="['/raspored-nastave']">Raspored nastave</a>
+        </li>
+        <li class="nav-item" [ngClass]="textColor()">
+            <a class="nav-link" href="https://etf.unibl.org/" target="_blank">Sajt fakulteta</a>
+        </li>
+        <li class="nav-item" [ngClass]="textColor()">
+            <a class="nav-link" href="https://efee.etf.unibl.org/home/">Glavni sajt</a>
+        </li>
+      </ul>
+    </div>
+  </nav>

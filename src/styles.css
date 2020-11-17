@@ -1,1 +1,44 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.css';
+.text-blue, .text-blue>a, .footer-blue{
+    color: #7ee1fa !important
+}
+.text-blue:hover, .text-blue>a:hover{
+    color: white !important;
+}
+.card-blue{
+    background-color: #22768b;
+    color: white;
+}
+.title-blue{
+    background-color: #45a7c0;
+    color: white;
+}
+.text-green, .text-green>a, .footer-green{
+    color: #529e1f !important
+}
+.text-green:hover, .text-green>a:hover{
+    color: white;
+}
+
+.text-green>a:hover{
+    color: white !important;
+}
+.card-green{
+    background-color: #286400;
+    color: white;
+}
+.title-green{
+    background-color: #529e1f;
+    color: white;
+}
+.nav-background{
+    background-color: #343a40 !important;
+}
+
+.background-green{
+    background: url('./assets/binary_image_background_green.jpeg');
+}
+.background-blue{
+    background: url('./assets/binary_image_background_blue.jpeg');
+}

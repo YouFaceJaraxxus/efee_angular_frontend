@@ -1,0 +1,10 @@
+<div class="oglasi" [class]="resolveBackground()">
+    <div *ngIf="yearTitle!=null" class="title">
+        {{yearTitle}}
+    </div>
+    <div *ngIf="announcements?.length > 0; then announcementsList else noAnnouncements"></div>
+    <ng-template #announcementsList>
+        <app-oglas *ngFor="let an of announcements" title="{{an.naslov}}" content = "{{an.sadrzaj}}" color="{{color}}" language="{{language}}"></app-oglas>
+    </ng-template>
+    <ng-template #noAnnouncements>No announcements</ng-template>
+</div>
