@@ -1,8 +1,18 @@
-.green{
-    color: white;
-    background-color: green;
+.homepage-title{
+    margin: 1% 0 7.5% 0;
 }
-.blue{
+
+.homepage-section-title{
+    width: 100%;
     color: white;
-    background-color: blue;
+    text-align: center;
+    font-weight: 700;
+    margin: 5% 0 2% 0;
+    padding: 1% 0;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.homepage-section-title:hover{
+    opacity: 0.8;
 }

@@ -1,4 +1,32 @@
-<div class="oglas-card" [class]="resolveCard()">
-    <h5>{{title}}</h5>
-    <p>{{content}}</p>
-</div>
+<ng-container *ngIf = "single==true; then singleOglas; else multiOglas"></ng-container>
+<ng-template #singleOglas>
+    <div>
+        {{title}}
+    </div>
+</ng-template>
+<ng-template #multiOglas>
+    <ng-container *ngIf = "short==true; then shortCard; else longCard"></ng-container>
+    <ng-template #shortCard>
+        <div class="oglas-card" [class]="resolveCard()">
+            <h5>{{title}}</h5>
+        </div>
+    </ng-template>
+    <ng-template #longCard>
+        <div class="oglas-card" [class]="resolveCard()">
+            <div class="title-date">
+                <h5 class="oglas-title" (click)="toggleOpen()">{{title}} <img src="{{resolveArrow()}}"></h5>
+                <h6 class="oglas-date">{{date}}</h6>
+            </div>
+            <div class="content" [class] = "{'content-intro' : intro!=''&&intro!=null}">
+                <h6 *ngIf="intro!=''&&intro!=null">{{intro}}</h6>
+                <div [@expandCollapse]="open? 'expanded' : 'collapsed'">{{content}}</div>
+            </div>      
+        </div>
+    </ng-template>
+</ng-template>
+
+
+
+
+
+

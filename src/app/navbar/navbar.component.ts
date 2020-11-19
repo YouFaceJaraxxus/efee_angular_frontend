@@ -8,36 +8,34 @@ import { Observable } from 'rxjs';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  settings$: Observable<{color:string, language:string}>;
+  settings$: Observable<{color: string, language: string}>;
   color: string;
   language: string;
-  constructor(private settingsStore: Store<{ settings: {color: string, language:string} }>) {
+  constructor(private settingsStore: Store<{ settings: {color: string, language: string} }>) {
     this.settings$ = settingsStore.select('settings');
-    this.settings$.subscribe(settings=>{
+    this.settings$.subscribe(settings => {
       this.color = settings.color;
       this.language = settings.language;
-    })
+    });
   }
 
-  textColor = () =>{
+  textColor = () => {
     return 'text-' + this.color;
   }
 
-  resolveHomeIcon = () =>{
+  resolveHomeIcon = () => {
     return `../../assets/home_${this.color}.svg`;
   }
 
 
   log = (data) => {
     console.log(data);
-    console.log(this.color);
-    console.log(this.language);
   }
 
   ngOnInit(): void {
   }
 
-  resolveBanner = () =>{
+  resolveBanner = () => {
     return `../../assets/header_banner_${this.color}.png`;
   }
 }

@@ -10,27 +10,27 @@ import { toggleColor, toggleLanguage } from '../actions/settingsActions';
 })
 export class FooterComponent implements OnInit {
   getYear = new Date().getFullYear();
-  settings$: Observable<{color:string, language:string}>;
+  settings$: Observable<{color: string, language: string}>;
   color: string;
- 
-  constructor(private settingsStore: Store<{ settings: {color: string, language:string} }>) {
+
+  constructor(private settingsStore: Store<{ settings: {color: string, language: string} }>) {
     this.settings$ = settingsStore.select('settings');
-    this.settings$.subscribe(settings=>{
+    this.settings$.subscribe(settings => {
       this.color = settings.color;
-    })
+    });
   }
 
   ngOnInit(){
 
   }
- 
+
 
   toggleColor = (newColor) => {
     this.settingsStore.dispatch(toggleColor({color: newColor}));
   }
 
   toggleLanguage = (newLanguage) => {
-    this.settingsStore.dispatch(toggleLanguage({language:newLanguage}));
+    this.settingsStore.dispatch(toggleLanguage({language: newLanguage}));
   }
 
 
@@ -38,8 +38,21 @@ export class FooterComponent implements OnInit {
     console.log(data);
   }
 
-  resolveColor= () =>{
+  resolveColor = () => {
     return `footer-${this.color}`;
+  }
+
+  resolveGear = () => {
+    return `../../assets/gear_${this.color}.svg`;
+  }
+
+  onToggle = (toggleMenu, otherMenu) => {
+    toggleMenu.classList.add('show');
+    otherMenu.classList.remove('show');
+  }
+
+  onClose = (toggleMenu) => {
+    toggleMenu.classList.remove('show');
   }
 
 }

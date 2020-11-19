@@ -1,5 +1,48 @@
 .oglas-card{
     border-radius: 5px;
-    padding: 0.5%;
+    padding: 1%;
+    margin-bottom: 1%;
+    display: block;
+}
+
+.title-date{
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 1%;
 }
+
+.oglas-title{
+    margin-right: 20%;
+    cursor: pointer;
+}
+
+.oglas-date{
+    
+}
+
+.content{
+    background-color: white;
+    border-radius: 5px;
+    color: black;
+}
+
+.content-intro{
+    padding: 0.5%;
+}
+
+.content>div, .content>h6{
+    padding: 0.5%;
+}
+
+
+
+@media screen and (max-width: 720px) {
+    .oglas-card{
+        padding: 2%;
+    }
+    .oglas-title, .oglas-date{
+        width: 100%;
+    }
+  }

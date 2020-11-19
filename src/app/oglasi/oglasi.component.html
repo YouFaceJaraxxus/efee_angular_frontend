@@ -1,10 +1,24 @@
-<div class="oglasi" [class]="resolveBackground()">
-    <div *ngIf="yearTitle!=null" class="title">
-        {{yearTitle}}
+<ng-container *ngIf = "single==true; then singleOglas; else multiOglas"></ng-container>
+<ng-template #singleOglas>
+    <div [class]="resolveBackground()">
+        DERP
     </div>
-    <div *ngIf="announcements?.length > 0; then announcementsList else noAnnouncements"></div>
-    <ng-template #announcementsList>
-        <app-oglas *ngFor="let an of announcements" title="{{an.naslov}}" content = "{{an.sadrzaj}}" color="{{color}}" language="{{language}}"></app-oglas>
-    </ng-template>
-    <ng-template #noAnnouncements>No announcements</ng-template>
-</div>
+</ng-template>
+<ng-template #multiOglas>
+    <div [class]="resolveBackground()">
+        <div class="oglasi">
+            <div *ngIf="yearTitle!=null" class="title">
+                {{yearTitle}}
+            </div>
+            <div *ngIf="announcements?.length > 0; then announcementsList else noAnnouncements"></div>
+            <ng-template #announcementsList>
+                <app-oglas *ngFor="let an of announcements" [data]="an" color="{{color}}" language="{{language}}" [single]="false" [short]="false"></app-oglas>
+            </ng-template>
+            <ng-template #noAnnouncements>
+                <div class="no-announcements">
+                    No announcements
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</ng-template>

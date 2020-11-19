@@ -1,12 +1,25 @@
-<p>home-page works!</p>
-
-<button (click)="toggleColor('green')">GREEN</button>
-<button (click)="toggleColor('blue')">BLUE</button>
-<hr/>
-<button (click)="toggleLanguage('latin')">LATIN</button>
-<button (click)="toggleLanguage('cyrillic')">CYRILLIC</button>
-<div *ngIf="settings$ | async as settings" (click)="log(settings)">
-    <div [class]="settings.color">Current Color: {{settings.color}}</div>
-    <div>Current Language: {{settings.language}}</div>
+<div [class]="resolveBackground()">
+    <div class="oglasi">
+        <div class="title homepage-title">
+            Pocetna
+        </div>
+        <div *ngIf = "announcementsMap!=null; then announcementsList; else noAnnouncements"></div>
+        <ng-template #announcementsList>
+            <div  *ngFor="let an of announcementsMap | keyvalue">
+                <h2 class="homepage-section-title" [ngClass]="resolveSectionTitleColor()">
+                    {{resolveTitle(an.key)}}
+                </h2>
+                <div *ngFor = "let a of an.value">
+                    <app-oglas [data]="a" color="{{color}}" language="{{language}}" [single]="false" [short]="true"></app-oglas>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template #noAnnouncements>
+            <div class="no-announcements">
+                No announcements
+            </div>
+        </ng-template>
+    </div>
 </div>
+
 

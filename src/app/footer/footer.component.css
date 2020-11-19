@@ -9,3 +9,23 @@ footer{
     text-align: center;
     background-color: #343a40;
 }
+.footer-item{
+    text-align: center;
+}
+
+
+.custom-list{
+    min-height: 250%;
+}
+
+@media screen and (max-width: 420px) {
+    .footer-item{
+        width: 100%;
+        justify-items: flex-end;
+        align-content: flex-end;
+        margin: auto;
+    }
+    .footer-item>div>button{
+        float: right;
+    }
+  }

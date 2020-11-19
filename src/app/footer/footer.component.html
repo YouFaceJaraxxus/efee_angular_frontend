@@ -1,4 +1,28 @@
 <footer [class]="resolveColor()">
-    <div>Made by YouFaceJaraxxus &copy;{{getYear}}</div>
-    <div>Settings</div>
+    <div class="footer-item">
+        Made by YouFaceJaraxxus &copy;{{getYear}}
+    </div>
+    <div class="footer-item">
+        <div class="dropup">
+            <button type="button" class="btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="{{resolveGear()}}">
+            </button>
+            <div class="dropdown-menu dropdown-menu-right dropleft">
+              <div class="dropleft" (mouseenter)="onToggle(themeMenu,languageMenu)" (mouseleave)="onClose(themeMenu)">
+                <a class="dropdown-item dropdown-toggle" #theme (click)="$event.stopPropagation(); onToggle(themeMenu, languageMenu)">Tema</a>
+                <div class="dropdown-menu dropdown-menu-right dropdown-left custom-list" #themeMenu>
+                    <a class="dropdown-item" (click)="onClose(themeMenu); toggleColor('green')">Zelena</a>
+                    <a class="dropdown-item" (click)="onClose(themeMenu); toggleColor('blue')">Plava</a>
+                </div>
+              </div>
+              <div class="dropleft" (mouseenter)="onToggle(languageMenu, themeMenu)" (mouseleave)="onClose(languageMenu)">
+                <a class="dropdown-item dropdown-toggle" #language (click)="$event.stopPropagation(); onToggle(languageMenu, themeMenu)">Jezik</a>
+                <div class="dropdown-menu dropdown-menu-right dropdown-left custom-list" #languageMenu>
+                    <a class="dropdown-item" (click)="onClose(languageMenu); toggleLanguage('latinica')">Latinica</a>
+                    <a class="dropdown-item" (click)="onClose(languageMenu); toggleLanguage('cirilica')">Cirilica</a>
+                </div>
+              </div>
+            </div>
+        </div>
+	</div>
 </footer>

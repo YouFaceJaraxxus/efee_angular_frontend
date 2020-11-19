@@ -42,3 +42,33 @@
 .background-blue{
     background: url('./assets/binary_image_background_blue.jpeg');
 }
+
+.oglasi{
+    padding: 1%;
+    background-size: cover;
+    padding-bottom: 50%;
+    margin: auto;
+    min-height: 100vh;
+    width: 90%;
+}
+
+.title{
+    color: white;
+    text-align: center;
+    font-size: 250%;
+    font-weight: 700;
+    margin-bottom: 3%;
+}
+
+.no-announcements{
+    color: white;
+    text-align: center;
+    padding: 10%;
+    font: 700 2.5em;
+}
+
+@media only screen and (max-width: 320px){
+    .oglasi{
+        width: 95%;
+    }
+}
