@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { util } from '../config';
 
 @Component({
   selector: 'app-navbar',
@@ -17,6 +18,10 @@ export class NavbarComponent implements OnInit {
       this.color = settings.color;
       this.language = settings.language;
     });
+  }
+
+  parseText = (text) =>{
+    return util.transliterate(text, this.language);
   }
 
   textColor = () => {

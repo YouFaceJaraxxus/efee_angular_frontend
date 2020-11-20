@@ -1,0 +1,11 @@
+.no-announcements{
+    color: white;
+    text-align: center;
+    font-size: 200%;
+    font-weight: bold;
+    margin: 10% 0 0 0;
+}
+
+.short-item{
+    width: 100%;
+}

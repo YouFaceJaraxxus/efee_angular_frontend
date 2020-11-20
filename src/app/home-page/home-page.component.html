@@ -1,22 +1,22 @@
-<div [class]="resolveBackground()">
-    <div class="oglasi">
+<div [class]="resolveBackground()" class="homepage">
+    <div class="homepage-oglasi">
         <div class="title homepage-title">
-            Pocetna
+            {{parseText('Početna')}}
         </div>
         <div *ngIf = "announcementsMap!=null; then announcementsList; else noAnnouncements"></div>
         <ng-template #announcementsList>
             <div  *ngFor="let an of announcementsMap | keyvalue">
-                <h2 class="homepage-section-title" [ngClass]="resolveSectionTitleColor()">
+                <h2 class="homepage-section-title" [ngClass]="resolveSectionTitleColor()" routerLink="/oglasi/{{an.key}}">
                     {{resolveTitle(an.key)}}
                 </h2>
                 <div *ngFor = "let a of an.value">
-                    <app-oglas [data]="a" color="{{color}}" language="{{language}}" [single]="false" [short]="true"></app-oglas>
+                    <app-oglas [data]="a" color="{{color}}" language="{{language}}" yearId="{{an.key}}" [single]="false" [short]="true"></app-oglas>
                 </div>
             </div>
         </ng-template>
         <ng-template #noAnnouncements>
             <div class="no-announcements">
-                No announcements
+                {{parseText('Nema dostupnih oglasa')}}
             </div>
         </ng-template>
     </div>

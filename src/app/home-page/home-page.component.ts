@@ -52,6 +52,7 @@ export class HomePageComponent implements OnInit {
         });
       });
       }else{
+        //console.log('else', this.announcementList)
         this.announcementList.forEach((item, index)=>{
           this.announcementsMap.set(constants.yearIds[index], item.data);
         })
@@ -68,7 +69,7 @@ export class HomePageComponent implements OnInit {
   }
 
   resolveTitle = (key) =>{
-    return util.getYearTitle(key);
+    return util.transliterate(util.getYearTitle(key), this.language);
   }
 
   ngOnInit(){
@@ -97,4 +98,11 @@ export class HomePageComponent implements OnInit {
     console.log(data);
   }
 
+  getLink = (yearId, id) =>{
+    return constants.SHARE_LINK + yearId + "/" + id;
+  }
+
+  parseText = (text) =>{
+    return util.transliterate(text, this.language);
+  }
 }

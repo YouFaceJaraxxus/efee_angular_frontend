@@ -8,18 +8,18 @@
                 <img src="{{resolveGear()}}">
             </button>
             <div class="dropdown-menu dropdown-menu-right dropleft">
-              <div class="dropleft" (mouseenter)="onToggle(themeMenu,languageMenu)" (mouseleave)="onClose(themeMenu)">
-                <a class="dropdown-item dropdown-toggle" #theme (click)="$event.stopPropagation(); onToggle(themeMenu, languageMenu)">Tema</a>
-                <div class="dropdown-menu dropdown-menu-right dropdown-left custom-list" #themeMenu>
-                    <a class="dropdown-item" (click)="onClose(themeMenu); toggleColor('green')">Zelena</a>
-                    <a class="dropdown-item" (click)="onClose(themeMenu); toggleColor('blue')">Plava</a>
+              <div class="dropleft" (mouseenter)="onToggle(themeMenu,languageMenu)">
+                <a class="dropdown-item dropdown-toggle" #theme (click)="$event.stopPropagation(); onToggle(themeMenu, languageMenu)">{{parseText('Tema')}}</a>
+                <div class="dropdown-menu dropdown-menu-right dropdown-left custom-list" (mouseleave)="onClose(themeMenu)" #themeMenu>
+                    <a class="dropdown-item" (click)="onClose(themeMenu); toggleColor('green')">{{parseText('Zelena')}}</a>
+                    <a class="dropdown-item" (click)="onClose(themeMenu); toggleColor('blue')">{{parseText('Plava')}}</a>
                 </div>
               </div>
-              <div class="dropleft" (mouseenter)="onToggle(languageMenu, themeMenu)" (mouseleave)="onClose(languageMenu)">
-                <a class="dropdown-item dropdown-toggle" #language (click)="$event.stopPropagation(); onToggle(languageMenu, themeMenu)">Jezik</a>
-                <div class="dropdown-menu dropdown-menu-right dropdown-left custom-list" #languageMenu>
-                    <a class="dropdown-item" (click)="onClose(languageMenu); toggleLanguage('latinica')">Latinica</a>
-                    <a class="dropdown-item" (click)="onClose(languageMenu); toggleLanguage('cirilica')">Cirilica</a>
+              <div class="dropleft" (mouseenter)="onToggle(languageMenu, themeMenu)">
+                <a class="dropdown-item dropdown-toggle" #language (click)="$event.stopPropagation(); onToggle(languageMenu, themeMenu)">{{parseText('Jezik')}}</a>
+                <div class="dropdown-menu dropdown-menu-right dropdown-left custom-list" (mouseleave)="onClose(languageMenu)" #languageMenu>
+                    <a class="dropdown-item" (click)="onClose(languageMenu); toggleLanguage('latin')">{{parseText('Latinica')}}</a>
+                    <a class="dropdown-item" (click)="onClose(languageMenu); toggleLanguage('cyrillic')">{{parseText('Ćirilica')}}</a>
                 </div>
               </div>
             </div>

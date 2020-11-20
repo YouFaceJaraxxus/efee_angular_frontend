@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { toggleColor, toggleLanguage } from '../actions/settingsActions';
+import { util } from '../config';
 
 @Component({
   selector: 'app-footer',
@@ -12,11 +13,13 @@ export class FooterComponent implements OnInit {
   getYear = new Date().getFullYear();
   settings$: Observable<{color: string, language: string}>;
   color: string;
+  language: string;
 
   constructor(private settingsStore: Store<{ settings: {color: string, language: string} }>) {
     this.settings$ = settingsStore.select('settings');
     this.settings$.subscribe(settings => {
       this.color = settings.color;
+      this.language = settings.language;
     });
   }
 
@@ -24,6 +27,10 @@ export class FooterComponent implements OnInit {
 
   }
 
+
+  parseText = (text) =>{
+    return util.transliterate(text, this.language);
+  }
 
   toggleColor = (newColor) => {
     this.settingsStore.dispatch(toggleColor({color: newColor}));

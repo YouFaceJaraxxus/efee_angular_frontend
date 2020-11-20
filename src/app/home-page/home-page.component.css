@@ -1,5 +1,15 @@
 .homepage-title{
-    margin: 1% 0 7.5% 0;
+    padding: 5% 0 5% 0;
+}
+
+.homepage{
+    background-size: cover;
+    padding-bottom: 20%;
+}
+
+.homepage-oglasi{
+    width: 80%;
+    margin: auto;
 }
 
 .homepage-section-title{

@@ -28,21 +28,96 @@
     color: black;
 }
 
-.content-intro{
-    padding: 0.5%;
-}
 
 .content>div, .content>h6{
     padding: 0.5%;
 }
 
+.oglas-error{
+    color: white;
+    text-align: center;
+    font-size: 200%;
+    font-weight: bold;
+    margin: 10% 0 0 0;
+}
 
+.author{
+    font-style: italic;
+    margin-top: 1%;
+    text-align: right;
+}
+
+.icons-grid{
+    margin-top: 1%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    align-items: center;
+}
+.custom-icon{
+    max-height: 24px;
+    margin-left: 2%;
+    min-width: 24px;
+}
+
+.custom-icon:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.single_oglas:hover{
+    opacity: 0.8;
+}
+
+.oglas-card-short{
+    border-radius: 5px;
+    padding: 1%;
+    margin-bottom: 1%;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.oglas-card-short:hover{
+    opacity: 0.8;
+}
+
+.short-title{
+    text-align: left;
+}
+
+.short-intro{
+    font-style: italic;
+}
+
+.short-date{
+    text-align: right;
+}
+
+
+.short-item{
+}
+
+.short-item-margin{
+    margin-right: 5%;
+}
 
 @media screen and (max-width: 720px) {
     .oglas-card{
         padding: 2%;
     }
     .oglas-title, .oglas-date{
+        width: 100%;
+    }
+
+    .custom-icon{
+        margin-left: 3%;
+    }
+
+    .short-item{
         width: 100%;
     }
   }
