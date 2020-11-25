@@ -10,20 +10,22 @@
     </div>
 </ng-template>
 <ng-template #multiOglas>
-    <div [class]="resolveBackground()">
-        <div class="oglasi">
-            <div *ngIf="yearTitle!=null" class="title">
-                Oglasi - {{yearTitle}}
-            </div>
-            <div *ngIf="announcements?.length > 0; then announcementsList else noAnnouncements"></div>
-            <ng-template #announcementsList>
-                <app-oglas *ngFor="let an of announcements" [data]="an" color="{{color}}" language="{{language}}" [single]="false" [short]="false" yearId="{{yearId}}"></app-oglas>
-            </ng-template>
-            <ng-template #noAnnouncements>
-                <div class="no-announcements">
-                    Nema dostupnih oglasa
+    <div class="oglasi" [class]="resolveBackground()">
+        <app-pagination [offset]="offset" [paginate]="paginate" [numOfItems]="announcements.length" [show] = "show">
+            <div @customFade class="oglasi-list pagination-content">
+                <div *ngIf="yearTitle!=null" class="title">
+                    Oglasi - {{yearTitle}}
                 </div>
-            </ng-template>
-        </div>
+                <div *ngIf="currentAnnouncements?.length > 0; then announcementsList else noAnnouncements"></div>
+                <ng-template #announcementsList>
+                    <app-oglas *ngFor="let an of currentAnnouncements" [data]="an" color="{{color}}" language="{{language}}" [single]="false" [short]="false" yearId="{{yearId}}"></app-oglas>
+                </ng-template>
+                <ng-template #noAnnouncements>
+                    <div class="no-announcements">
+                        Nema dostupnih oglasa
+                    </div>
+                </ng-template>
+            </div>
+        </app-pagination>
     </div>
 </ng-template>

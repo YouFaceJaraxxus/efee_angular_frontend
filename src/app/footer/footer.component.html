@@ -1,5 +1,5 @@
 <footer [class]="resolveColor()">
-    <div class="footer-item">
+    <div>
         Made by YouFaceJaraxxus &copy;{{getYear}}
     </div>
     <div class="footer-item">
@@ -7,19 +7,19 @@
             <button type="button" class="btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <img src="{{resolveGear()}}">
             </button>
-            <div class="dropdown-menu dropdown-menu-right dropleft">
-              <div class="dropleft" (mouseenter)="onToggle(themeMenu,languageMenu)">
-                <a class="dropdown-item dropdown-toggle" #theme (click)="$event.stopPropagation(); onToggle(themeMenu, languageMenu)">{{parseText('Tema')}}</a>
-                <div class="dropdown-menu dropdown-menu-right dropdown-left custom-list" (mouseleave)="onClose(themeMenu)" #themeMenu>
-                    <a class="dropdown-item" (click)="onClose(themeMenu); toggleColor('green')">{{parseText('Zelena')}}</a>
-                    <a class="dropdown-item" (click)="onClose(themeMenu); toggleColor('blue')">{{parseText('Plava')}}</a>
+            <div class="dropdown-menu dropdown-menu-right dropleft nav-background">
+              <div class="dropleft nav-background" (mouseenter)="onToggle(themeMenu,languageMenu)">
+                <a class="dropdown-item dropdown-toggle nav-background footer-item" #theme (click)="$event.stopPropagation(); onToggle(themeMenu, languageMenu)" [class]="resolveItemColor()">{{parseText('Tema')}}</a>
+                <div class="dropdown-menu dropdown-menu-right dropdown-left custom-list nav-background" (mouseleave)="onClose(themeMenu)" #themeMenu>
+                    <a [class]="resolveItemColor()" class="dropdown-item nav-background footer-item" (click)="onClose(themeMenu); toggleColor('green')">{{parseText('Zelena')}}</a>
+                    <a [class]="resolveItemColor()" class="dropdown-item nav-background footer-item" (click)="onClose(themeMenu); toggleColor('blue')">{{parseText('Plava')}}</a>
                 </div>
               </div>
-              <div class="dropleft" (mouseenter)="onToggle(languageMenu, themeMenu)">
-                <a class="dropdown-item dropdown-toggle" #language (click)="$event.stopPropagation(); onToggle(languageMenu, themeMenu)">{{parseText('Jezik')}}</a>
-                <div class="dropdown-menu dropdown-menu-right dropdown-left custom-list" (mouseleave)="onClose(languageMenu)" #languageMenu>
-                    <a class="dropdown-item" (click)="onClose(languageMenu); toggleLanguage('latin')">{{parseText('Latinica')}}</a>
-                    <a class="dropdown-item" (click)="onClose(languageMenu); toggleLanguage('cyrillic')">{{parseText('Ćirilica')}}</a>
+              <div class="dropleft nav-background" (mouseenter)="onToggle(languageMenu, themeMenu)">
+                <a class="dropdown-item dropdown-toggle nav-background footer-item" #language (click)="$event.stopPropagation(); onToggle(languageMenu, themeMenu)" [class]="resolveItemColor()">{{parseText('Jezik')}}</a>
+                <div class="dropdown-menu dropdown-menu-right dropdown-left custom-list nav-background" (mouseleave)="onClose(languageMenu)" #languageMenu>
+                    <a [class]="resolveItemColor()" class="dropdown-item nav-background footer-item" (click)="onClose(languageMenu); toggleLanguage('latin')">{{parseText('Latinica')}}</a>
+                    <a [class]="resolveItemColor()" class="dropdown-item nav-background footer-item" (click)="onClose(languageMenu); toggleLanguage('cyrillic')">{{parseText('Ćirilica')}}</a>
                 </div>
               </div>
             </div>

@@ -1,0 +1,13 @@
+<ng-content select=".pagination-content"></ng-content>
+<div *ngIf="checkIfNeeded()" class="pagination-numbers-wrapper" [@fadeIn]="showPagination">
+    <div (click) = "paginateLeft()" class="pagination-number" [class]="resolveStyle(-1)">
+        &lsaquo;
+    </div>
+    <div *ngFor="let item of [].constructor(numOfPages); let i = index" (click) = "handlePaginate(i)" class="pagination-number" [class]="resolveStyle(i)">
+        {{i+1}}
+    </div>
+    <div (click) = "paginateRight()" class="pagination-number" [class]="resolveStyle(-1)">
+        &rsaquo;
+    </div>
+</div>
+

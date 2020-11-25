@@ -1,1 +1,43 @@
-<p>zavrsni-radovi works!</p>
+<ng-container *ngIf = "single==true; then singleZavrsni; else multiZavrsni"></ng-container>
+<ng-template #singleZavrsni>
+    <div [class]="resolveBackground()">
+        <div class="oglasi">
+            <div class="title">
+                {{parseText('Završni rad')}}
+            </div>
+            <app-zavrsni-rad [data]="zavrsniRad" color="{{color}}" language="{{language}}" [single]="true" [short]="false"></app-zavrsni-rad>
+        </div>
+    </div>
+</ng-template>
+<ng-template #multiZavrsni>
+    <div class="oglasi" [class]="resolveBackground()">
+        <app-pagination [offset]="offset" [paginate]="paginate" [numOfItems]="total" [show] = "show">
+            <div @customFade class="oglasi-list pagination-content">
+                <div class="title">
+                    {{parseText(typeTitle)}}
+                </div>
+                <div class="zavrsni-radovi-search-form">
+                    <input [ngModel]="searchValue" (ngModelChange)="handleSearchValueChange($event)" name="searchValue" id="searchValue" placeholder="{{parseText('Unesi izraz za pretragu...')}}" type="text" class="zavrsni-radovi-search-input" [class]="resolveFormStyle()">
+                    <select [(ngModel)]="searchParam" name="searchParam" id="searchParam" class="zavrsni-radovi-select" [class]="resolveFormStyle()" [value]="searchParam">
+                        <option value="tema">{{parseText('Naslov rada')}}</option>
+                        <option value="obrazlozenje">{{parseText('Opis rada')}}</option>
+                        <option value="predsjednikKomisije.ime">{{parseText('Predsjednik komisije')}}</option>
+                        <option value="mentor.ime">{{parseText('Mentor')}}</option>
+                        <option value="clanKomisije.ime">{{parseText('Član komisije')}}</option>
+                        <option value="studentIme">{{parseText('Student')}}</option>
+                    </select>
+                    <button class="zavrsni-radovi-search-button" [class]="resolveFormStyle()" (click)="getData()">{{parseText('Pretraga')}}</button>
+                </div>
+                <div *ngIf="zavrsniRadovi?.length > 0; then zavrsniRadoviList else noRadovi"></div>
+                <ng-template #zavrsniRadoviList>
+                    <app-zavrsni-rad *ngFor="let an of zavrsniRadovi" [data]="an" color="{{color}}" language="{{language}}" [single]="false" [short]="false"></app-zavrsni-rad>
+                </ng-template>
+                <ng-template #noRadovi>
+                    <div class="no-announcements">
+                        {{parseText('Nema dostupnih završnih radova')}}
+                    </div>
+                </ng-template>
+            </div>
+        </app-pagination>
+    </div>
+</ng-template>

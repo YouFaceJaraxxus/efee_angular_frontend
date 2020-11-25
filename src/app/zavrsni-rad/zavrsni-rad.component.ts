@@ -1,11 +1,12 @@
-import { animate, state, style, transition, trigger } from '@angular/animations';
-import { Component, Input, OnInit } from '@angular/core';
-import {constants, util} from '../config';
+import { trigger, state, style, animate, transition } from '@angular/animations';
+import { Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { constants, util } from '../config';
 
 @Component({
-  selector: 'app-oglas',
-  templateUrl: './oglas.component.html',
-  styleUrls: ['./oglas.component.css'],
+  selector: 'app-zavrsni-rad',
+  templateUrl: './zavrsni-rad.component.html',
+  styleUrls: ['./zavrsni-rad.component.css'],
   animations: [
     trigger('expandCollapse', [
       state('collapsed', style({
@@ -42,20 +43,22 @@ import {constants, util} from '../config';
     ])
   ]
 })
-export class OglasComponent implements OnInit {
+export class ZavrsniRadComponent implements OnInit {
   @Input('color') color: string;
   @Input('language') language: string;
   @Input('short') short: boolean;
   @Input('data') data: any;
   @Input('single') single: boolean;
-  @Input('yearId') yearId: string;
   title: string;
   intro: string;
   content: string;
   date: string;
-  author: string;
+  president: string;
+  mentor: string;
+  member: string;
   open = false;
   attachment: string;
+  status: string;
 
   constructor() {
    }
@@ -75,12 +78,13 @@ export class OglasComponent implements OnInit {
   retry = () => {
     setTimeout(() => {
       if (this.data){
-        this.title = this.data.naslov;
-        this.intro = this.data.uvod;
-        this.content = this.data.sadrzaj;
-        this.date = util.formatAnnouncementDate(this.data.vrijemeKreiranja, this.language);
-        this.author = this.data.potpis;
-        this.attachment = this.parseAttachment(this.data.id, this.data.oglasPrilozi);
+        this.title = this.data.tema;
+        this.content = this.data.obrazlozenje;
+        this.date = util.formatAnnouncementDate(this.data.trenutniStatus.vrijemeKreiranja, this.language);
+        this.status = this.data.trenutniStatus.statusZavrsnogRada.naziv;
+        this.president = this.data.predsjednikKomisije.ime;
+        this.mentor = this.data.mentor.ime;
+        this.member = this.data.clanKomisije.ime;
       }else { this.retry(); }
     }, 250);
   }
@@ -98,15 +102,15 @@ export class OglasComponent implements OnInit {
   }
 
   toggleExpanded = () => {
-    return this.open ? 'oglas-expanded' : this.intro != '' ? 'oglas-expanded' : 'oglas-collapsed';
+    return this.open ? 'zavrsni-rad-expanded' : this.intro != '' ? 'zavrsni-rad-expanded' : 'zavrsni-rad-collapsed';
   }
 
   getLink = () => {
-    return constants.SHARE_ANNOUNCEMENT_LINK + this.yearId + '/' + this.data.id;
+    return constants.SHARE_ZAVRSNI_RAD_LINK + this.data.id;
   }
 
   getShortLink = () => {
-    return('/oglas/' + this.yearId + '/' + this.data.id);
+    return('/zavrsni-rad/'+ this.data.id);
   }
 
   copyLink = () => {
@@ -114,10 +118,16 @@ export class OglasComponent implements OnInit {
   }
 
   copyText = () => {
-    util.copyToClipboard(this.title + ' ' + this.date + ' ' + this.content + ' ' + this.author, this.language);
+    util.copyToClipboard(this.title + ' ' + this.date + ' ' + this.content + ' ' + this.parseComission(), this.language);
+  }
+
+  parseComission = () =>{
+    return `Predsjednik komisije: ${this.president}, mentor: ${this.mentor}, član komisije: ${this.member}.`;
   }
 
   parseText = (text) => {
     return util.transliterate(text, this.language);
   }
+
+
 }

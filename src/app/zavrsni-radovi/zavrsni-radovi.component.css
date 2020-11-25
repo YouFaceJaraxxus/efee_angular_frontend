@@ -1,0 +1,116 @@
+.no-announcements{
+    color: white;
+    text-align: center;
+    font-size: 200%;
+    font-weight: bold;
+    margin: 10% 0 0 0;
+}
+
+
+.zavrsni-radovi-search-form{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex: 1;
+    padding: 3% 0 3% 0;
+    justify-content: space-between;
+}
+
+
+
+.zavrsni-radovi-search-input{
+    min-width: 35%;
+    margin: 1% 1% 1% 0;
+    flex: 1 0 30%;
+    padding: 1% 2% 1% 2%;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    color: white;
+    border-style: none;
+}
+
+.zavrsni-radovi-search-input::placeholder{
+    color: white;
+}
+
+.zavrsni-radovi-select{
+    margin: 1% 1% 1% 0;
+    padding: 1% 2% 1% 2%;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    color: white;
+    border-style: none;
+}
+
+.zavrsni-radovi-search-button{
+    margin: 1% 0 1% 0;
+    padding: 1% 2% 1% 2%;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    color : white;
+    border-style: none;
+}
+
+.zavrsni-radovi-form-green{
+    background-color:rgb(82, 158, 31)
+}
+
+.zavrsni-radovi-form-blue{
+    background-color:rgb(69, 167, 192)
+}
+
+@media only screen and (max-width: 800px) {
+    /* For mobile phones: */
+    .zavrsni-radovi{
+        width: 95%;
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+
+
+    .oglasi-wrapper{
+        padding-bottom: 50%;
+    }
+
+    .zavrsni-radovi-search-input{
+        width: 100%;
+    }
+
+    .zavrsni-radovi-search-button{
+    }
+
+    .zavrsni-radovi-select{
+    }
+  }
+
+@media only screen and (max-width: 600px) {
+    /* For mobile phones: */
+    .zavrsni-radovi{
+        width: 95%;
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+
+
+    .zavrsni-radovi-search-input{
+        width: 100%;
+    }
+
+
+    .zavrsni-radovi-search-button{
+        width: 100%;
+    }
+
+    .zavrsni-radovi-select{
+        width: 100%;
+    }
+
+    .oglasi-wrapper{
+        padding-bottom: 50%;
+    }
+  }
+
+  

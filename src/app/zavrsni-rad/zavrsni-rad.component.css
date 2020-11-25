@@ -1,4 +1,4 @@
-.oglas-card{
+.zavrsni-rad-card{
     border-radius: 5px;
     padding: 1%;
     margin-bottom: 1%;
@@ -13,13 +13,18 @@
     margin-bottom: 1%;
 }
 
-.oglas-title{
+.zavrsni-rad-title{
     margin-right: 20%;
     cursor: pointer;
 }
 
-.oglas-date{
+.zavrsni-rad-date{
     
+}
+
+.zavrsni-rad-status{
+    margin-bottom: 1%;
+    font-weight: 500;
 }
 
 .content{
@@ -29,11 +34,12 @@
 }
 
 
+
 .content>div, .content>h6{
     padding: 0.5%;
 }
 
-.oglas-error{
+.zavrsni-rad-error{
     color: white;
     text-align: center;
     font-size: 200%;
@@ -46,6 +52,7 @@
     margin-top: 1%;
     text-align: right;
 }
+
 
 .icons-grid{
     margin-top: 1%;
@@ -65,11 +72,11 @@
     cursor: pointer;
 }
 
-.single-oglas:hover{
+.single-zavrsni-rad:hover{
     opacity: 0.8;
 }
 
-.oglas-card-short{
+.zavrsni-rad-card-short{
     border-radius: 5px;
     padding: 1%;
     margin-bottom: 1%;
@@ -81,7 +88,7 @@
     align-items: center;
 }
 
-.oglas-card-short:hover{
+.zavrsni-rad-card-short:hover{
     opacity: 0.8;
 }
 
@@ -106,10 +113,10 @@
 }
 
 @media screen and (max-width: 720px) {
-    .oglas-card{
+    .zavrsni-rad-card{
         padding: 2%;
     }
-    .oglas-title, .oglas-date{
+    .zavrsni-rad-title, .zavrsni-rad-date{
         width: 100%;
     }
 

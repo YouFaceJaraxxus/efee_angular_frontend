@@ -12,8 +12,4 @@ export class OglasiService extends DataService{
   constructor(public oglasiHttpClient: HttpClient) {
     super(oglasiHttpClient, OGLASI_URL);
   }
-
-  getSingle2 = (id) => {
-    return this.oglasiHttpClient.get(this.oglasiUrl + id);
-  }
 }

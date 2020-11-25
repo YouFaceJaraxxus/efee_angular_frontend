@@ -2,7 +2,7 @@
 <ng-template #singleOglas>
     <ng-container *ngIf = "data==null; then singleError; else singleSuccess"></ng-container>
     <ng-template #singleSuccess>
-        <div @fade class="oglas-single">
+        <div @customFade class="oglas-single">
             <div class="oglas-card" [class]="resolveCard()">
                 <div class="title-date">
                     <h5 class="oglas-title">{{parseText(title)}}</h5>
@@ -10,7 +10,10 @@
                 </div>
                 <div class="content expanded">
                     <h6 *ngIf="intro!=''&&intro!=null">{{parseText(intro)}}</h6>
-                    <div>{{parseText(content)}}</div>
+                    <div>
+                        {{parseText(content)}}
+                        <div class="author">{{parseText(author)}}</div>
+                    </div>
                 </div>
                 <div class="icons-grid">
                     <a *ngIf="this.attachment!=null" class="custom-icon" href="{{attachment}}" target="_blank"><img src="../../assets/download_icon.svg" class="img img-responsive custom-icon"></a>
@@ -29,14 +32,14 @@
 <ng-template #multiOglas>
     <ng-container *ngIf = "short==true; then shortCard; else longCard"></ng-container>
     <ng-template #shortCard>
-        <a href="{{getLink()}}" target="_blank" @fade class="oglas-card-short" [class]="resolveCard()">
+        <a href="{{getLink()}}" target="_blank" @customFade class="oglas-card-short" [class]="resolveCard()">
             <h5 class="short-item short-title short-item-margin">{{parseText(title)}}</h5>
             <h5 class="short-intro short-item short-item-margin">{{parseText(intro)}}</h5>
             <h5 class="short-item short-date">{{parseText(date)}}</h5>
         </a>
     </ng-template>
     <ng-template #longCard>
-        <div @fade class="oglas-card" [class]="resolveCard()">
+        <div @customFade class="oglas-card" [class]="resolveCard()">
             <div class="title-date">
                 <h5 class="oglas-title" (click)="toggleOpen()">{{parseText(title)}} <img src="{{resolveArrow()}}" class="img img-responsive"></h5>
                 <h6 class="oglas-date">{{parseText(date)}}</h6>

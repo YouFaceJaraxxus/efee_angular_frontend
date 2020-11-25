@@ -28,7 +28,7 @@ export class FooterComponent implements OnInit {
   }
 
 
-  parseText = (text) =>{
+  parseText = (text) => {
     return util.transliterate(text, this.language);
   }
 
@@ -47,6 +47,10 @@ export class FooterComponent implements OnInit {
 
   resolveColor = () => {
     return `footer-${this.color}`;
+  }
+
+  resolveItemColor = () => {
+    return `text-${this.color}`;
   }
 
   resolveGear = () => {

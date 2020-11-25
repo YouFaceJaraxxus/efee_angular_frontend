@@ -32,13 +32,13 @@ export class HomePageComponent implements OnInit {
       this.fetched = (data as any).fetched;
       this.announcementList = (data as any).data;
     });
-    if(!this.fetched){
+    if (!this.fetched){
       this.announcementList = this.oglasiService.getAllFromMultiple(constants.yearIds);
       const reduxArray = new Array();
       let itemsProcessed = 0;
-      this.announcementList.sort((a,b)=>{
-        return a.yearId - b.yearId
-      })
+      this.announcementList.sort((a, b) => {
+        return a.yearId - b.yearId;
+      });
       this.announcementList.forEach((item, index, array) => {
         itemsProcessed++;
         item.subscribe(result => {
@@ -46,16 +46,16 @@ export class HomePageComponent implements OnInit {
           reduxArray.push({yearId: constants.yearIds[index], data: result});
           if (itemsProcessed == array.length) {
             this.fetched = true;
-            this.dataStore.dispatch(setFetched({newFetched:true}));
-            setTimeout(()=>this.dataStore.dispatch(setData({newData: reduxArray})), 100) //add offset to ensure data is dispatched only after being fully fetched
+            this.dataStore.dispatch(setFetched({newFetched: true}));
+            setTimeout(() => this.dataStore.dispatch(setData({newData: reduxArray})), 100); // add offset to ensure data is dispatched only after being fully fetched
           }
         });
       });
       }else{
-        //console.log('else', this.announcementList)
-        this.announcementList.forEach((item, index)=>{
+        // console.log('else', this.announcementList)
+        this.announcementList.forEach((item, index) => {
           this.announcementsMap.set(constants.yearIds[index], item.data);
-        })
+        });
       }
   }
 
@@ -68,7 +68,7 @@ export class HomePageComponent implements OnInit {
     return true;
   }
 
-  resolveTitle = (key) =>{
+  resolveTitle = (key) => {
     return util.transliterate(util.getYearTitle(key), this.language);
   }
 
@@ -81,7 +81,7 @@ export class HomePageComponent implements OnInit {
   }
 
   resolveSectionTitleColor = () => {
-    return `title-${this.color}`
+    return `title-${this.color}`;
   }
 
 
@@ -98,11 +98,11 @@ export class HomePageComponent implements OnInit {
     console.log(data);
   }
 
-  getLink = (yearId, id) =>{
-    return constants.SHARE_LINK + yearId + "/" + id;
+  getLink = (yearId, id) => {
+    return constants.SHARE_ANNOUNCEMENT_LINK + yearId + '/' + id;
   }
 
-  parseText = (text) =>{
+  parseText = (text) => {
     return util.transliterate(text, this.language);
   }
 }

@@ -13,14 +13,18 @@ import { ZavrsniRadoviComponent } from './zavrsni-radovi/zavrsni-radovi.componen
 import { NavbarComponent } from './navbar/navbar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {  HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { RasporedNastaveComponent } from './raspored-nastave/raspored-nastave.component';
 import { FooterComponent } from './footer/footer.component';
 import { dataReducer } from './reducers/dataReducer';
+import { ZavrsniRadComponent } from './zavrsni-rad/zavrsni-rad.component';
+import { PaginationComponent } from './pagination/pagination.component';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {path: 'oglas/:yearId/:oglasId', component: OglasiComponent},
   {path: 'oglasi/:yearId', component: OglasiComponent},
+  {path: 'zavrsni-rad/:zavrsniRadId', component: ZavrsniRadoviComponent},
   {path: 'zavrsni-radovi/:typeId', component: ZavrsniRadoviComponent},
   {path: 'pocetna', component: HomePageComponent},
   {path: 'raspored-nastave', component: RasporedNastaveComponent},
@@ -36,7 +40,9 @@ const routes: Routes = [
     NavbarComponent,
     OglasComponent,
     RasporedNastaveComponent,
-    FooterComponent
+    FooterComponent,
+    ZavrsniRadComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +55,8 @@ const routes: Routes = [
     CommonModule,
     NgbModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

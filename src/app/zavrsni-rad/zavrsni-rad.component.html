@@ -1,0 +1,88 @@
+<ng-container *ngIf = "single==true; then singleOglas; else multiZavrsni"></ng-container>
+<ng-template #singleOglas>
+    <ng-container *ngIf = "data==null; then singleError; else singleSuccess"></ng-container>
+    <ng-template #singleSuccess>
+        <div @customFade class="zavrsni-rad-single">
+            <div class="zavrsni-rad-card" [class]="resolveCard()">
+                <div class="title-date">
+                    <h5 class="zavrsni-rad-title">{{parseText(title)}}</h5>
+                    <h6 class="zavrsni-rad-date">{{parseText(date)}}</h6>
+                </div>
+                <div class="zavrsni-rad-status">
+                    {{parseText('Status : ' + status)}}
+                </div>
+                <div class="content expanded">
+                    <div>
+                        {{parseText(content)}}
+                        <hr/>
+                        <div class="author">
+                            <div>
+                                {{parseText('Predsjednik komisije : ' + president)}}
+                            </div>
+                            <div>
+                                {{parseText('Mentor : ' + mentor)}}
+                            </div>
+                            <div>
+                                {{parseText('Član komisije : ' + member)}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="icons-grid">
+                    <img src="../../assets/share_icon.svg" class="img img-responsive custom-icon" (click)="copyLink()">
+                    <img src="../../assets/copy_icon.svg" class="img img-responsive custom-icon" (click)="copyText()">
+                </div>   
+            </div>
+        </div>
+    </ng-template>
+    <ng-template #singleError>
+        <div class="zavrsni-rad-error">
+            {{parseText('Završni rad ne postoji.')}}
+        </div>
+    </ng-template> 
+</ng-template>
+<ng-template #multiZavrsni>
+    <ng-container *ngIf = "short==true; then shortCard; else longCard"></ng-container>
+    <ng-template #shortCard>
+        <a href="{{getLink()}}" target="_blank" @customFade class="zavrsni-rad-card-short" [class]="resolveCard()">
+            <h5 class="short-item short-title short-item-margin">{{parseText(title)}}</h5>
+            <h5 class="short-item short-date">{{parseText(date)}}</h5>
+        </a>
+    </ng-template>
+    <ng-template #longCard>
+        <div @customFade class="zavrsni-rad-card" [class]="resolveCard()">
+            <div class="title-date">
+                <h5 class="zavrsni-rad-title" (click)="toggleOpen()">{{parseText(title)}} <img src="{{resolveArrow()}}" class="img img-responsive"></h5>
+                <h6 class="zavrsni-rad-date">{{parseText(date)}}</h6>
+            </div>
+            <div class="content">
+                <div [@expandCollapse]="open? 'expanded' : 'collapsed'">
+                    {{parseText(content)}}
+                    <hr/>
+                    <div class="author">
+                        <div>
+                            {{parseText('Predsjednik komisije : ' + president)}}
+                        </div>
+                        <div>
+                            {{parseText('Mentor : ' + mentor)}}
+                        </div>
+                        <div>
+                            {{parseText('Član komisije : ' + member)}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="icons-grid">
+                <img src="../../assets/share_icon.svg" class="img img-responsive custom-icon" (click)="copyLink()">
+                <img src="../../assets/copy_icon.svg" class="img img-responsive custom-icon" (click)="copyText()">
+                <img src="../../assets/expand_icon.svg" class="img img-responsive custom-icon" [routerLink]="getShortLink()">
+            </div>
+        </div>
+    </ng-template>
+</ng-template>
+
+
+
+
+
+

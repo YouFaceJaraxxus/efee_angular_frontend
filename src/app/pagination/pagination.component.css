@@ -1,0 +1,38 @@
+.pagination-numbers-wrapper{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 7%;
+}
+
+.pagination-number{
+    background-color: white;
+    padding: 0.5% 1%;
+    margin: 1%;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.pagination-number:hover{
+    opacity: 0.8;
+}
+
+.pagination-number-green{
+    color: #19aa20;
+}
+
+.pagination-number-blue{
+    color: #1900f7;
+}
+
+.pagination-number-active-green{
+    background-color: #19aa20 !important;
+    color: white !important;
+}
+
+.pagination-number-active-blue{
+    background-color: #1900f7 !important;
+    color: white !important;
+}

@@ -10,12 +10,14 @@ footer{
     background-color: #343a40;
 }
 .footer-item{
-    text-align: center;
+    cursor: pointer;
 }
-
-
 .custom-list{
     min-height: 250%;
+}
+
+.footer-item:hover{
+    color: white !important;
 }
 
 @media screen and (max-width: 420px) {

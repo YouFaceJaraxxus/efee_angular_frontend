@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { setData,setFetched } from '../actions/dataActions';
+import { setData, setFetched } from '../actions/dataActions';
 
 
 export const initialState = {

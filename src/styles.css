@@ -9,16 +9,24 @@
 .card-blue{
     background-color: #22768b;
     color: white;
+    transition-property: background-color;
+    transition: ease-in-out 1s;
 }
 .title-blue{
     background-color: #45a7c0;
     color: white;
+    transition: ease-in-out 1s;
+    transition-property: background-color;
 }
 .text-green, .text-green>a, .footer-green{
-    color: #529e1f !important
+    color: #529e1f !important;
+    transition: ease-in-out 1s;
+    transition-property: background-color;
 }
 .text-green:hover, .text-green>a:hover{
     color: white;
+    transition: ease-in-out 1s;
+    transition-property: background-color;
 }
 
 .text-green>a:hover{
@@ -27,10 +35,14 @@
 .card-green{
     background-color: #286400;
     color: white;
+    transition: ease-in-out 1s;
+    transition-property: background-color;
 }
 .title-green{
     background-color: #529e1f;
     color: white;
+    transition: ease-in-out 1s;
+    transition-property: background-color;
 }
 .nav-background{
     background-color: #343a40 !important;
@@ -38,18 +50,23 @@
 
 .background-green{
     background: url('./assets/binary_image_background_green.jpeg');
+    transition: ease-in-out 1s;
 }
 .background-blue{
     background: url('./assets/binary_image_background_blue.jpeg');
+    transition: ease-in-out 1s;
 }
 
 .oglasi{
     padding: 1%;
-    background-size: cover;
+    background-size: cover !important;
     padding-bottom: 50%;
-    margin: auto;
     min-height: 100vh;
+}
+
+.oglasi-list{
     width: 80%;
+    margin: auto;
 }
 
 .title{
@@ -68,7 +85,7 @@
 }
 
 @media only screen and (max-width: 320px){
-    .oglasi{
+    .oglasi-list{
         width: 95%;
     }
 }

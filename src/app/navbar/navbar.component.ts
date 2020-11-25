@@ -20,7 +20,7 @@ export class NavbarComponent implements OnInit {
     });
   }
 
-  parseText = (text) =>{
+  parseText = (text) => {
     return util.transliterate(text, this.language);
   }
 
